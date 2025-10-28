@@ -6,13 +6,13 @@ import pycpt
 
 def get_invader():
     invader = [
-        "X     X",
+        " X   X ",
+        "  XXX  ",
         " XXXXX ",
+        " X X X ",
+        "XX X XX",
         " XXXXX ",
-        " X X X ",
-        " X X X ",
-        "XXXXXXX",
-        " X X X ",
+        " X   X ",
     ]
     return np.flipud(
         np.array([[1 if x == "X" else np.nan for x in l] for l in invader])
@@ -41,7 +41,7 @@ def main():
     # Plot invader
     invader = get_invader()
     invader = invader * np.linspace(0, 1, invader.shape[1])
-    plot_invader(invader, ax, palette="bhw3_13")
+    plot_invader(invader, ax, palette="bhw3_37")
 
     # Save logo
     fig.savefig("logo/logo.png", bbox_inches="tight", pad_inches=0.1)
