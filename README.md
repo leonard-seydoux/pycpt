@@ -176,18 +176,13 @@ gridlines.top_labels = False
 gridlines.right_labels = False
 palette.colorbar(ax=ax, label="Elevation (m)", pad=0.1, shrink=0.5)
 ax.set_title("La Réunion Island with illumination")
+
+plt.show()
 ```
 
 
-
-
-    Text(0.5, 1.0, 'La Réunion Island with illumination')
-
-
-
-
     
-![svg](README_files/README_13_1.svg)
+![svg](README_files/README_13_0.svg)
     
 
 
