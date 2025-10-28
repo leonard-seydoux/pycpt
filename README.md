@@ -1,11 +1,15 @@
 
+<div align="center">
+
 <img src="logo/logo.gif" alt="pycpt logo" width="100"/>
 
-# PyCPT
+**PyCPT**\
+Color Palette Tables from <a href="http://seaviewsensing.com/pub/cpt-city/" target="_blank">cpt-city</a> in your Python environment.\
+Made in 2025 by Léonard Seydoux. 
 
-Color Palette Tables from <a href="http://seaviewsensing.com/pub/cpt-city/" target="_blank">cpt-city</a> in your Python environment.
-Made in 2025 by Léonard Seydoux</p>
+</div>
 
+## Overview
 
 This package parses common CPT formats (including GMT-style lines) and exposes a simple `Palette` API:
 - `palette.cmap`: a `ListedColormap` with one color per CPT segment
