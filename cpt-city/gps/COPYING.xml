@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<copying>
+  <authors>
+    <author href="http://www.ramonmiranda.com/">
+      <name>Ramón Miranda</name>
+    </author>
+  </authors>
+  <license>
+    <informal>CC BY-SA 3.0</informal>
+    <year>2012</year>
+    <text href="http://creativecommons.org/licenses/by-sa/3.0/"/>
+  </license>
+  <src>
+    <format>GIMP gradient (ggr)</format>
+  </src>
+  <distribute>
+    <qgis distribute="yes" license="cc3"/>
+  </distribute>
+</copying>

@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<copying>
+  <authors>
+    <author>
+      <name>Blackheartedwolf</name>
+    </author>
+  </authors>
+  <license>
+    <informal>Creative Commons Attribution 3.0</informal>
+    <year>2011</year>
+    <text href="http://creativecommons.org/licenses/by/3.0/"/>
+  </license>
+  <src>
+    <format>Paint Shop Pro gradients</format>
+    <remark>Formerly at DeviantArt, account now disactivated</remark>
+  </src>
+  <distribute>
+    <qgis distribute="yes" license="cc3"/>
+  </distribute>
+</copying>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- $Id: COPYING.xml,v 1.7 2025/10/20 11:44:14 jjg Exp $ -->
+<copying>
+  <authors>
+    <author href="https://paleoearthlabs.org/">
+      <name>Christian Heine</name>
+      <org>PaleoEarthLabs</org>
+    </author>
+  </authors>
+  <license>
+    <informal>CC BY-SA 4.0</informal>
+    <year>2025</year>
+    <text href="https://creativecommons.org/licenses/by-sa/4.0/deed.en"/>
+  </license>
+  <src>
+    <format>GMT cpt files</format>
+    <link href="https://code.paleoearthlabs.org/geotimecpts/home">Palette respository</link>
+    <remark>Contributed to the archive by the author, October 2013</remark>
+    <remark>Updated by the author, October 2025</remark>
+  </src>
+  <distribute>
+    <qgis distribute="yes" license="cc4"/>
+  </distribute>
+</copying>

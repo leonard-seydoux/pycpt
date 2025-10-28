@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<copying>
+  <authors>
+    <author>
+      <name>Kenneth Moreland</name>
+    </author>
+  </authors>
+  <license>
+    <informal>
+      Public domain
+    </informal>
+    <year>2012</year>
+    <remark>
+      Contributed to the public domain by the author,
+      April 2012.
+    </remark>
+  </license>
+  <src>
+    <format>Output from VTK</format>
+    <link href="https://www.kennethmoreland.com/color-maps"
+          >Description of the algorithm</link>
+  </src>
+  <distribute>
+    <qgis distribute="yes" license="otherok"/>
+  </distribute>
+</copying>

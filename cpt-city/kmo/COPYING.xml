@@ -1,0 +1,25 @@
+<?xml version='1.0'?>
+<copying>
+  <authors>
+    <author>
+      <name>Kate Morley</name>
+    </author>
+  </authors>
+  <license>
+    <informal>CC0 1.0</informal>
+    <year>2025</year>
+    <text href='https://creativecommons.org/publicdomain/zero/1.0/legalcode'/>
+    <remark>
+      Contributed to the archive by the author February 2025.
+    </remark>
+  </license>
+  <src>
+    <format>Table of colour codes</format>
+    <link href='https://iamkate.com/'>Kate Morley's website</link>
+    <link href='https://iamkate.com/data/12-bit-rainbow/'
+          >Details on design of the scheme</link>
+  </src>
+  <distribute>
+    <qgis distribute='yes' license='otherok'/>
+  </distribute>
+</copying>

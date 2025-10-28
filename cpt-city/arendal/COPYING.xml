@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<copying>
+  <authors>
+    <author href="https://www.grida.no/resources?media=Graphic">
+      <name>GRID-Arendal</name>
+    </author>
+  </authors>
+  <license>
+    <informal>
+      Attribution and linkback requested.
+    </informal>
+    <year>2014</year>
+    <text>
+      Using this graphic and referring to it is encouraged, and please use
+      it in presentations, web pages, newspapers, blogs and reports.
+
+      For any form of publication, please include the link to this page and
+      give the cartographer/designer credit.
+    </text>
+  </license>
+  <src>
+    <format>PNG images</format>
+    <link href="https://www.grida.no/resources/5919">Temperature</link>
+    <link href="https://www.grida.no/resources/7239">Arctic bathymetry</link>
+    <link href="https://www.grida.no/resources/5216">Zimbabwe</link>
+  </src>
+  <distribute>
+    <qgis distribute="yes" license="other"/>
+  </distribute>
+</copying>

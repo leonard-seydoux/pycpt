@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<copying>
+  <authors>
+    <author href="https://www.c82.net/natural-colors/">
+      <name>Nicholas Rougeux</name>
+    </author>
+  </authors>
+  <license>
+    <informal>
+      CC0 1.0
+    </informal>
+    <year>2025</year>
+    <text href='https://creativecommons.org/publicdomain/zero/1.0'/>
+  </license>
+  <src>
+    <format>Spreadsheet of colour values</format>
+    <remark>
+      Contributed to the archive by the author March 2025.
+    </remark>
+  </src>
+  <distribute>
+    <qgis distribute="yes" license="otherok"/>
+  </distribute>
+</copying>

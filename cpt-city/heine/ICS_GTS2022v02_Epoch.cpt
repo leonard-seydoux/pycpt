@@ -1,0 +1,59 @@
+# Geological Time Color Palettes
+#  
+# Data source: International Commission for Stratigraphy (ICS)
+# Time scale:  Geological Time Scale 2022v02
+# Geochronologic unit: Epoch 
+# Date generated: 2025-10-15
+#---------------------------------------------------------- 
+# This file provides a geological timescale color palette
+# for plotting with GPlates (https:gplates.org) or the 
+# Generic Mapping Tools (GMT) ecosystem (GMT, pyGMT, GMT.jl, etc).
+# Usage: 
+#    https://code.paleoearthlabs.org/geotimecpts/ 
+#     and
+#    https://generic-mapping-tools.org/docs/reference/cpts.html
+#---------------------------------------------------------- 
+# (c) 2020-2025 Christian Heine, PaleoEarthLabs.org
+#     https://code.paleoearthlabs.org/geotimecpts/ 
+# License: 
+#     Creative Commons Attribution-ShareAlike 4.0 International 
+#     To view a copy of this license, visit: 
+#     https://creativecommons.org/licenses/by-sa/4.0/
+#----------------------------------------------------------            
+# COLOR_MODEL = RGB           
+0	254/242/236	0.0117	254/242/236 ; Holocene
+0.0117	255/242/174	2.58	255/242/174 ; Pleistocene
+2.58	255/255/153	5.333	255/255/153 ; Pliocene
+5.333	255/255/0	23.03	255/255/0 ; Miocene
+23.03	253/192/122	33.9	253/192/122 ; Oligocene
+33.9	253/180/108	56.0	253/180/108 ; Eocene
+56.0	253/167/95	66.0	253/167/95 ; Paleocene
+66.0	166/216/74	100.5	166/216/74 ; Upper Cretaceous
+100.5	140/205/87	145.0	140/205/87 ; Lower Cretaceous
+145.0	179/227/238	163.5	179/227/238 ; Upper Jurassic
+163.5	128/207/216	174.1	128/207/216 ; Middle Jurassic
+174.1	66/174/208	201.3	66/174/208 ; Lower Jurassic
+201.3	189/140/195	237.0	189/140/195 ; Upper Triassic
+237.0	177/104/177	247.2	177/104/177 ; Middle Triassic
+247.2	152/57/153	251.902	152/57/153 ; Lower Triassic
+251.902	251/167/148	259.51	251/167/148 ; Lopingian
+259.51	251/116/92	273.01	251/116/92 ; Guadalupian
+273.01	239/88/69	298.9	239/88/69 ; Cisuralian
+298.9	166/199/183	315.2	166/199/183 ; Middle Pennsylvanian
+315.2	140/190/180	323.2	140/190/180 ; Lower Pennsylvanian
+323.2	179/190/108	330.9	179/190/108 ; Upper Mississippian
+330.9	153/180/108	346.7	153/180/108 ; Middle Mississippian
+346.7	128/171/108	358.9	128/171/108 ; Lower Mississippian
+358.9	241/225/157	382.7	241/225/157 ; Upper Devonian
+382.7	241/200/104	393.3	241/200/104 ; Middle Devonian
+393.3	241/200/104	419.2	241/200/104 ; Lower Devonian
+419.2	230/245/225	423.0	230/245/225 ; Pridoli
+423.0	191/230/207	427.4	191/230/207 ; Ludlow
+427.4	179/225/194	433.4	179/225/194 ; Wenlock
+433.4	153/215/179	443.8	153/215/179 ; Llandovery
+443.8	127/202/147	458.4	127/202/147 ; Upper Ordovician
+458.4	77/180/126	470.0	77/180/126 ; Middle Ordovician
+470.0	26/157/111	485.4	26/157/111 ; Lower Ordovician
+485.4	179/224/149	497.0	179/224/149 ; Furongian
+497.0	153/192/120	521.0	153/192/120 ; Series 2
+521.0	140/176/108	538.8	140/176/108 ; Terreneuvian

@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<copying>
+  <authors>
+    <author>
+      <name>CalorieLab</name>
+    </author>
+  </authors>
+  <license>
+    <informal>Free to use</informal>
+    <year>2010</year>
+  </license>
+  <src>
+    <format>Extracted from SVG file</format>
+    <remark>Contributed to the archive Oct 2010</remark>
+  </src>
+  <distribute>
+    <qgis distribute="no" license="freeuse"/>
+  </distribute>
+</copying>

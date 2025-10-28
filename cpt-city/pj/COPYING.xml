@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<copying>
+  <authors>
+    <author>
+      <name>Peggy Jentoft</name>
+    </author>
+  </authors>
+  <license>
+    <informal>Free to use</informal>
+    <year>2005</year>
+  </license>
+  <src>
+    <format>Paint Shop Pro (grd version 3)</format>
+    <remark>Contributed to the archive by the author, Sep 2005</remark>
+  </src>
+  <distribute>
+    <qgis distribute="no" license="freeuse"/>
+  </distribute>
+</copying>

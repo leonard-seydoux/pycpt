@@ -1,0 +1,37 @@
+# Geological Time Color Palettes
+#
+# Data source: International Commission for Stratigraphy (ICS)
+# Time scale:  Geological Time Scale 2012
+# Geochronologic unit: Age 
+# Date generated: 2025-10-14
+#---------------------------------------------------------- 
+# This file provides a geological timescale color palette
+# for plotting with GPlates (https:gplates.org) or the 
+# Generic Mapping Tools (GMT) ecosystem (GMT, pyGMT, GMT.jl, etc).
+# Usage: 
+#    https://code.paleoearthlabs.org/geotimecpts/ 
+#     and
+#    https://generic-mapping-tools.org/docs/reference/cpts.html
+#---------------------------------------------------------- 
+# (c) 2020-2025 Christian Heine, PaleoEarthLabs.org
+#     https://code.paleoearthlabs.org/geotimecpts/ 
+# License: 
+#     Creative Commons Attribution-ShareAlike 4.0 International 
+#     To view a copy of this license, visit: 
+#     https://creativecommons.org/licenses/by-sa/4.0/
+#----------------------------------------------------------
+# COLOR_MODEL = RGB
+#
+0.0     242/249/29      66.0    242/249/29	; Cenozoic
+66.0    103/197/202     252.2   103/197/202	; Mesozoic
+252.2   153/192/141     541.0   153/192/141	; Paleozoic
+541.0   254/179/66      1000    254/179/66	; Neoproterozoic
+1000    253/180/98      1600    253/180/98	; Mesoproterozoic
+1600    247/67/112      2500    247/67/112	; Paleoproterozoic
+2500    249/155/193     2800    249/155/193 ; Neoarchean
+2800    247/104/169     3200    247/104/169 ; Mesoarchean
+3200    244/68/159      3600    244/68/159  ; Paleoarchean
+3600    218/3/127       4000    218/3/127   ; Eoarchean
+
+B	black
+F	white

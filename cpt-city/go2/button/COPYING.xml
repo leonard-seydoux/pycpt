@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<copying>
+  <authors>
+    <author href="https://www.gosquared.com/">
+      <name>GoSquared</name>
+    </author>
+  </authors>
+  <license>
+    <informal>Attribution requested</informal>
+    <year>2009</year>
+    <text href="https://www.gosquared.com/blog/hot-off-the-press-monochromatic-buttons">
+      As always, they're entirely free for you to download and do
+      whatever you want with them. We appreciate a link back or
+      mention wherever possible, because we know you're nice people,
+      and love sharing stuff. Especially shiny buttons.
+    </text>
+  </license>
+  <src>
+    <format>SVG</format>
+    <link href="https://downloads.gosquared.com/vectors/button_set_02.svg"
+          >SVG file</link>
+    <link href="https://www.gosquared.com/blog/hot-off-the-press-monochromatic-buttons"
+          >GoSquared blog</link>
+  </src>
+  <distribute>
+    <qgis distribute="yes" license="other"/>
+  </distribute>
+</copying>
