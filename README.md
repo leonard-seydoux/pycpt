@@ -1,8 +1,7 @@
 # pycpt
 
-<img src="logo/logo.gif" alt="pycpt logo" width=100/>
+<img src="logo/logo.gif" alt="pycpt logo" width="100" style="float: left; margin-right: 20px;"/><p style="line-height: 1.1;"><br><strong>PyCPT</strong><br>Color Palette Tables from <a href="http://seaviewsensing.com/pub/cpt-city/" target="_blank">cpt-city</a><br>in your Python environment.<br>Made in 2025 by Léonard Seydoux</p><br clear="all"/>
 
-Read and work with CPT (Color Palette Table) colormaps in Matplotlib.
 
 This package parses common CPT formats (including GMT-style lines) and exposes a simple `Palette` API:
 - `palette.cmap`: a `ListedColormap` with one color per CPT segment

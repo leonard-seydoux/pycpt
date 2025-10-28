@@ -14,7 +14,7 @@ import PIL
 import pycpt
 
 # Palettes to cycle through
-PALETTES = ["bhw3_01", "thermal", "jet", "gold", "aurora"]
+PALETTES = ["bhw3_01", "thermal", "jet", "rainfall", "aurora"]
 BLINK = ["005-random"]
 SAVE_DIRECTORY = Path(__file__).parent
 SAVE_PNG_DIR = SAVE_DIRECTORY / "palettes"
