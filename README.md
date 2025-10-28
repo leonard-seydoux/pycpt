@@ -8,7 +8,9 @@ CPT is short for Color Palette Table, a file format popularized by the [Generic 
 
 The [cpt-city](http://seaviewsensing.com/pub/cpt-city/) website maintained by J. J. Green is a community-curated archive of color palettes collected from many projects (e.g., GMT, cmocean, Matplotlib, and more). Palettes are organized in family folders and typically include metadata files like `DESC.xml` and `COPYING.xml` that describe provenance and licensing.
 
-This package is shipped with a `cpt-city/` directory that contains the entire archive obtained from the website. Be mindful that individual palettes may carry different licenses-refer to the accompanying `COPYING.xml` files. Learn more at on the [cpt-city](http://seaviewsensing.com/pub/cpt-city/) website.
+## License and Usage
+
+This package is shipped with a `cpt-city/` directory that contains the entire archive obtained from the website. The archive can be rebuilt with the `pycpt.update_bundle()` method. Be mindful that individual palettes may carry different licenses-refer to the accompanying `COPYING.xml` files. This archive only contains palettes for which redistribution is permitted. Learn more at on the [cpt-city](http://seaviewsensing.com/pub/cpt-city/) website.
 
 ## Installation
 
@@ -25,6 +27,8 @@ And many helpers to inspect, scale and interpolate the palette, or plot colorbar
 
 
 ```python
+%config InlineBackend.figure_format = 'svg'
+
 import matplotlib.pyplot as plt
 import numpy as np
 import pycpt
@@ -38,8 +42,6 @@ You can also set the logical palette type with `kind` ("sequential" or "divergin
 
 
 ```python
-%config InlineBackend.figure_format = 'svg'
-
 palette = pycpt.read("wiki-2.0", kind="diverging", diverging_point=0)
 palette.plot()
 ```
@@ -232,9 +234,20 @@ plt.show()
     
 
 
+## About the archive
+
+The files from the [cpt-city](http://seaviewsensing.com/pub/cpt-city/) website are bundled in the `cpt-city/` folder. You can also download the latest archive from [here](http://seaviewsensing.com/pub/cpt-city/pkg/cpt-city-cpt-2.27.zip) and extract it to replace the existing folder.
+
+Alternatively, there is a helper function `pycpt.files.update_bundle()` that downloads and extracts the latest archive automatically.
+
+
+```python
+pycpt.update_bundle()
+```
+
 ## Contribution
 
 Contributions are welcome! Please refer to the `CONTRIBUTING.md` file for guidelines on how to contribute to this project.
 
 This notebook was generated with the `nbconvert` tool. To regenerate it, run:
-jupyter nbconvert --execute --to markdown README.ipynb
+python build_readme.py

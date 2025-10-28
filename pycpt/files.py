@@ -91,23 +91,29 @@ def update_bundle(
     """Update the bundled CPT_DIRECTORY from a remote URL.
 
     This function downloads and extracts a ZIP archive from the specified URL,
-    replacing the existing CPT_DIRECTORY contents. It is intended for updating
-    the bundled cpt-city archive to a newer version.
+    replacing the existing CPT_DIRECTORY contents. Only extracts directories
+    that have distribute="yes" in their COPYING.xml file.
 
     Parameters
     ----------
     url : str
         URL of the ZIP archive containing the updated cpt-city files.
+    families : str | None
+        Optional list of family names to restrict extraction to specific families.
 
     Raises
     ------
     Exception
         If the download or extraction fails.
     """
-    import requests
-    import zipfile
     import io
+    import re
     import shutil
+    import tempfile
+    import zipfile
+    from xml.etree import ElementTree as ET
+
+    import requests
 
     # Download the ZIP archive
     response = requests.get(url)
@@ -119,20 +125,73 @@ def update_bundle(
             f"Cannot write to directory: {CPT_DIRECTORY.parent}"
         )
 
-    # Extract the ZIP archive to a temporary location
-    with zipfile.ZipFile(io.BytesIO(response.content)) as zip_file:
-        # directory = CPT_DIRECTORY.parent
+    # Extract to temporary directory and filter by distribute="yes"
+    with tempfile.TemporaryDirectory() as temp_dir:
+        temp_path = Path(temp_dir)
+
+        with zipfile.ZipFile(io.BytesIO(response.content)) as zip_file:
+            # Extract everything to temp first
+            zip_file.extractall(temp_path)
+
+        # Find the cpt-city directory in extracted content
+        cpt_temp = temp_path / "cpt-city"
+        if not cpt_temp.exists():
+            # Try to find it as a subdirectory
+            candidates = list(temp_path.glob("*/cpt-city"))
+            if candidates:
+                cpt_temp = candidates[0]
+            else:
+                raise FileNotFoundError(
+                    "Could not find cpt-city directory in archive"
+                )
+
+        # Scan for distributable directories
+        distributable_dirs = set()
+        for copying_xml in cpt_temp.rglob("COPYING.xml"):
+            try:
+                tree = ET.parse(copying_xml)
+                root = tree.getroot()
+                # Check for <distribute><qgis distribute="yes"/>
+                distribute_elem = root.find("distribute")
+                if distribute_elem is not None:
+                    qgis_elem = distribute_elem.find("qgis")
+                    if (
+                        qgis_elem is not None
+                        and qgis_elem.get("distribute") == "yes"
+                    ):
+                        # Add the parent directory of COPYING.xml
+                        family_dir = copying_xml.parent.relative_to(cpt_temp)
+                        distributable_dirs.add(family_dir)
+            except Exception as e:
+                # Skip files we can't parse
+                print(f"Warning: Could not parse {copying_xml}: {e}")
+                continue
+
+        # Remove existing CPT_DIRECTORY
         if CPT_DIRECTORY.exists():
             shutil.rmtree(CPT_DIRECTORY)
-        if families is not None:
-            members = []
-            for member in zip_file.namelist():
-                for family in families:
-                    if family in member:
-                        members.append(member)
-            zip_file.extractall(CPT_DIRECTORY.parent, members)
-        else:
-            zip_file.extractall(CPT_DIRECTORY.parent)
+
+        # Create new CPT_DIRECTORY
+        CPT_DIRECTORY.mkdir(parents=True, exist_ok=True)
+
+        # Copy only distributable directories
+        for dist_dir in distributable_dirs:
+            # Apply family filter if specified
+            if families is not None:
+                if not any(family in str(dist_dir) for family in families):
+                    continue
+
+            src = cpt_temp / dist_dir
+            dst = CPT_DIRECTORY / dist_dir
+
+            if src.exists():
+                dst.parent.mkdir(parents=True, exist_ok=True)
+                shutil.copytree(src, dst, dirs_exist_ok=True)
+
+        # Copy top-level files (README.txt, VERSION.xml, etc.)
+        for item in cpt_temp.iterdir():
+            if item.is_file():
+                shutil.copy2(item, CPT_DIRECTORY / item.name)
 
 
 def solve(filepath: str | Path) -> Path:
