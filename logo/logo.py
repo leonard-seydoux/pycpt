@@ -7,25 +7,22 @@ import pycpt
 def get_invader():
     invader = [
         "X     X",
-        "X     X",
         " XXXXX ",
         " XXXXX ",
         " X X X ",
         " X X X ",
         "XXXXXXX",
-        " X   X ",
+        " X X X ",
     ]
-    return np.array([[1 if x == "X" else np.nan for x in l] for l in invader])
+    return np.flipud(
+        np.array([[1 if x == "X" else np.nan for x in l] for l in invader])
+    )
 
 
-def trait_invader(invader, ax):
-    ax.matshow(invader, line="k", lw=2)
-
-
-def plot_invader(invader, ax, palette="wiki-france"):
+def plot_invader(invader, ax, palette="wiki-france", vmin=0, vmax=1):
     palette = pycpt.read(palette)
-    palette.scale(np.nanmin(invader), np.nanmax(invader))
-    ax.matshow(invader, cmap=palette.cmap, norm=palette.norm)
+    palette.scale(vmin, vmax)
+    ax.pcolormesh(invader, cmap=palette.cmap, norm=palette.norm)
 
 
 def canvas():
@@ -43,12 +40,11 @@ def main():
 
     # Plot invader
     invader = get_invader()
-    invader = invader * np.linspace(-10, 10, invader.shape[1])
-    trait_invader(invader, ax)
-    plot_invader(invader, ax, palette="jet")
+    invader = invader * np.linspace(0, 1, invader.shape[1])
+    plot_invader(invader, ax, palette="bhw3_13")
 
     # Save logo
-    fig.savefig("logo/logo.png", bbox_inches="tight", pad_inches=0)
+    fig.savefig("logo/logo.png", bbox_inches="tight", pad_inches=0.1)
 
 
 if __name__ == "__main__":
