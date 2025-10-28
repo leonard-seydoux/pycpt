@@ -8,7 +8,7 @@ be called directly when building custom workflows.
 
 from pathlib import Path
 
-CPT_DIRECTORY = Path(__file__).parent.parent / "cpt-city"
+CPT_DIRECTORY = Path(__file__).parent / "cpt-city"
 CPT_BUNDLE_URL = (
     "http://seaviewsensing.com/pub/cpt-city/pkg/cpt-city-cpt-2.27.zip"
 )
