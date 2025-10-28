@@ -3,7 +3,7 @@
 
 <img src="logo/logo.gif" alt="pycpt logo" width="100"/>
 
-<span style="font-size: 24px;">**PyCPT**</span><br>
+<span style="font-size: 170%;">**PyCPT**</span><br>
 Color Palette Tables from <a href="http://seaviewsensing.com/pub/cpt-city/" target="_blank">cpt-city</a> in Python.<br>
 Made in 2025 by Léonard Seydoux. 
 
