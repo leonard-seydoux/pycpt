@@ -6,12 +6,84 @@ paths. These helpers are used transparently by :func:`pycpt.read` but can also
 be called directly when building custom workflows.
 """
 
-from pathlib import Path
+from __future__ import annotations
 
-CPT_DIRECTORY = Path(__file__).parent / "cpt-city"
+import os
+from pathlib import Path
+from typing import Optional
+
+try:
+    # Python 3.11+
+    from importlib.resources import files as _pkg_files
+except Exception:  # pragma: no cover
+    _pkg_files = None  # type: ignore
+
 CPT_BUNDLE_URL = (
     "http://seaviewsensing.com/pub/cpt-city/pkg/cpt-city-cpt-2.27.zip"
 )
+
+
+def _discover_bundle_dir() -> Path:
+    """Discover the on-disk location of the bundled cpt-city directory.
+
+    Resolution priority:
+    1. Explicit override via environment variable ``PYCPT_BUNDLE_DIR``.
+    2. A directory named ``cpt-city`` shipped alongside the installed package
+       (i.e., inside the ``pycpt`` package directory).
+    3. A repository/development layout: two levels up from this file joined
+       with ``cpt-city`` (repo_root/cpt-city).
+
+    Returns
+    -------
+    pathlib.Path
+        Path to the discovered bundle directory.
+
+    Raises
+    ------
+    FileNotFoundError
+        If no plausible bundle directory could be found.
+    """
+    # 1) Environment override
+    env_dir = os.environ.get("PYCPT_BUNDLE_DIR")
+    if env_dir:
+        p = Path(env_dir).expanduser().resolve()
+        if p.exists() and p.is_dir():
+            return p
+
+    # 2) Inside the installed package (pycpt/cpt-city)
+    if _pkg_files is not None:
+        try:
+            traversable = _pkg_files(__package__).joinpath("cpt-city")
+            # Convert to filesystem Path if backed by the filesystem
+            p = Path(str(traversable))
+            if p.exists() and p.is_dir():
+                return p
+        except Exception:
+            pass
+
+    # 3) Development layout: repo_root/cpt-city
+    dev_candidate = Path(__file__).resolve().parent.parent / "cpt-city"
+    if dev_candidate.exists() and dev_candidate.is_dir():
+        return dev_candidate
+
+    raise FileNotFoundError(
+        "Could not locate bundled 'cpt-city' directory. Set PYCPT_BUNDLE_DIR "
+        "to override, or install a distribution that includes the data."
+    )
+
+
+# Public entry point for users
+def bundle_location() -> Path:
+    """Return the absolute path to the bundled cpt-city directory.
+
+    This path can be used to browse families, inspect licenses, or point other
+    tools at the on-disk CPT archive.
+    """
+    return _discover_bundle_dir()
+
+
+# Backward-compatible alias used internally
+CPT_DIRECTORY = bundle_location()
 
 
 def update_bundle(

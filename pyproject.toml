@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "pycpt-city"
-version = "0.1.2"
+version = "0.1.3"
 description = "Read and use CPT (Color Palette Table) colormaps from cpt-city in Matplotlib"
 authors = [{ name = "Léonard Seydoux", email = "seydoux@ipgp.fr" }]
 readme = "README.md"
@@ -24,6 +24,7 @@ dependencies = [
   "numpy",
   "pandas",
   "matplotlib",
+  "requests",
 ]
 
 [project.urls]
@@ -45,3 +46,8 @@ exclude = ["notebooks*", "tests*", "examples*"]
 
 [tool.setuptools.package-data]
 "*" = ["*.cpt", "*.xml", "*.txt"]
+
+[tool.setuptools.data-files]
+"pycpt/cpt-city" = [
+  "cpt-city/**"
+]
