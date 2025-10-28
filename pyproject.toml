@@ -19,6 +19,9 @@ dependencies = [
 [project.urls]
 Homepage = "https://github.com/yourname/pycpt"
 
+[project.scripts]
+pycpt-export-md = "pycpt.export_md:cli"
+
 [tool.setuptools]
 include-package-data = true
 
