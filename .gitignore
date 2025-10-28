@@ -1,6 +1,7 @@
 /.DS_Store
 /.venv
 /pycpt.egg-info
+/geotiff
 
 **/__pycache__
 **/*.pyc

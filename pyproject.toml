@@ -8,12 +8,15 @@ version = "0.1.0"
 description = "Read and use CPT (Color Palette Table) colormaps from cpt-city in Matplotlib"
 authors = [{ name = "Your Name" }]
 readme = "README.md"
-requires-python = ">=3.9"
+requires-python = ">=3.11"
 dependencies = [
   "numpy",
   "pandas",
   "matplotlib",
   "jupyter>=1.1.1",
+  "pygmrt>=0.1.0",
+  "cartopy>=0.25.0",
+  "scipy>=1.16.2",
 ]
 
 [project.urls]

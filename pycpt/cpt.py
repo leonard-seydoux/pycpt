@@ -64,6 +64,10 @@ class Palette:
     kind : {"sequential", "diverging"}
         Logical type of the palette; affects how :meth:`scale` re-maps
         boundaries.
+    diverging_point : float or None
+        For ``kind='diverging'``, the value around which the colormap is
+        centered. Segments left/right of ``diverging_point`` are re-scaled
+        independently to preserve divergence.
     """
 
     def __init__(
@@ -72,6 +76,7 @@ class Palette:
         kind: str = "sequential",
         nan_color: Optional[Tuple[int, int, int]] = None,
         name: Optional[str] = None,
+        diverging_point: Optional[float] = 0,
     ):
         """Initialize a palette.
 
@@ -87,11 +92,16 @@ class Palette:
         kind : {"sequential", "diverging"}, default "sequential"
             Palette type; controls :meth:`scale` behavior when re-mapping
             boundaries to new data ranges.
+        diverging_point : float, optional
+            For ``kind='diverging'``, the value around which the colormap is
+            centered. Segments left/right of ``diverging_point`` are re-scaled
+            independently to preserve divergence.
         """
         self.data = data
         self.kind = kind
         self.nan_color = nan_color
         self.name = name
+        self.diverging_point = diverging_point
 
     def __repr__(self):
         return (
@@ -201,7 +211,14 @@ class Palette:
         self.data = self.data[::-1]
         return self
 
-    def plot(self, ax=None, figsize=(4, 0.25), height=1.0, show_values=True):
+    def plot(
+        self,
+        ax=None,
+        figsize=(4, 0.25),
+        height=1.0,
+        show_values=True,
+        rasterized=False,
+    ):
         """
         Plot the palette as a horizontal color bar (discrete bands).
 
@@ -232,6 +249,7 @@ class Palette:
                     interval.length,
                     height,
                     facecolor=color,
+                    zorder=1,
                 )
             )
 
@@ -249,7 +267,11 @@ class Palette:
         ax.set_title(self.name, size="medium")
         ax.tick_params(axis="x", labelsize="small")
 
-    def scale(self, vmin: float, vmax: float, at: Optional[float] = 0):
+        # Rasterize for large number of segments
+        if rasterized:
+            ax.set_rasterization_zorder(2)
+
+    def scale(self, vmin: float, vmax: float):
         """
         Re-map segment boundaries to a new numeric range in place.
 
@@ -259,20 +281,18 @@ class Palette:
             New minimum boundary value.
         vmax : float
             New maximum boundary value.
-        at : float, optional
-            For ``kind='diverging'``, the value around which the colormap is
-            centered. Segments left/right of ``at`` are re-scaled independently
-            to preserve divergence.
 
         Notes
         -----
         - For ``kind='sequential'``, boundaries are linearly mapped from the
           original ``[cmin, cmax]`` to ``[vmin, vmax]``.
-        - For ``kind='diverging'``, boundaries left of ``at`` map to ``[vmin, at]``
-          and boundaries right of ``at`` map to ``[at, vmax]``. Colors are not
+        - For ``kind='diverging'``, boundaries left of ``diverging_point`` map
+          to ``[vmin, diverging_point]``, and boundaries right of
+          ``diverging_point`` map to ``[diverging_point, vmax]``. Colors are not
           altered; only boundary positions are changed.
         """
         if self.kind == "diverging":
+            at = self.diverging_point
             levels = self.levels
             new_levels = np.empty_like(levels, dtype=float)
 
@@ -410,7 +430,11 @@ class Palette:
         return cb
 
 
-def read(filepath: str, kind: str = "sequential") -> Palette:
+def read(
+    filepath: str,
+    kind: str = "sequential",
+    diverging_point: Optional[float] = 0,
+) -> Palette:
     """Parse a CPT (Color Palette Table) file into a :class:`Palette`.
 
     The reader supports commonly encountered CPT formats:
@@ -432,6 +456,10 @@ def read(filepath: str, kind: str = "sequential") -> Palette:
     kind : {"sequential", "diverging"}, default "sequential"
         Logical type of the palette; stored on the resulting :class:`Palette`
         and used by :meth:`Palette.scale` to determine re-scaling behavior.
+    diverging_point : float, optional
+        For ``kind='diverging'``, the value around which the colormap is
+        centered. Segments left/right of ``diverging_point`` are re-scaled
+        independently to preserve divergence.
 
     Returns
     -------
@@ -585,5 +613,9 @@ def read(filepath: str, kind: str = "sequential") -> Palette:
     palette_name = filepath.stem
 
     return Palette(
-        data=data, nan_color=nan_color, name=palette_name, kind=kind
+        data=data,
+        nan_color=nan_color,
+        name=palette_name,
+        kind=kind,
+        diverging_point=diverging_point,
     )
