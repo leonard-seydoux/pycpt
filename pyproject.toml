@@ -3,27 +3,37 @@ requires = ["setuptools>=61.0"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "pycpt"
-version = "0.1.0"
+name = "pycpt-city"
+version = "0.1.1"
 description = "Read and use CPT (Color Palette Table) colormaps from cpt-city in Matplotlib"
-authors = [{ name = "Your Name" }]
+authors = [{ name = "Léonard Seydoux", email = "seydoux@ipgp.fr" }]
 readme = "README.md"
 requires-python = ">=3.11"
+license = { text = "MIT" }
+keywords = ["colormap", "palette", "cpt", "cpt-city", "matplotlib", "visualization"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering :: Visualization",
+]
 dependencies = [
   "numpy",
   "pandas",
   "matplotlib",
-  "jupyter>=1.1.1",
-  "pygmrt>=0.1.0",
-  "cartopy>=0.25.0",
-  "scipy>=1.16.2",
 ]
 
 [project.urls]
-Homepage = "https://github.com/yourname/pycpt"
+Homepage = "https://github.com/leonard-seydoux/pycpt-city"
+Repository = "https://github.com/leonard-seydoux/pycpt-city"
+Issues = "https://github.com/leonard-seydoux/pycpt-city/issues"
 
 [project.scripts]
 pycpt-export-md = "pycpt.export_md:cli"
+pycpt-build-readme = "build_readme:main"
 
 [tool.setuptools]
 include-package-data = true
@@ -32,3 +42,6 @@ include-package-data = true
 where = ["."]
 include = ["pycpt*"]
 exclude = ["notebooks*", "tests*", "examples*"]
+
+[tool.setuptools.package-data]
+"*" = ["*.cpt", "*.xml", "*.txt"]

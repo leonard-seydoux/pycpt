@@ -1,10 +1,28 @@
-/.DS_Store
-/.venv
-/pycpt.egg-info
-/geotiff
+# macOS
+.DS_Store
 
-**/__pycache__
-**/*.pyc
-**/*.pyo
-**/*.pyd
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Build artifacts
+dist/
+build/
+*.egg-info/
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Data/output directories
+geotiff/
+
+# UV lock file (uncomment if you want to track it)
+# uv.lock
 

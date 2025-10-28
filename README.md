@@ -1,5 +1,5 @@
 <div align="center">
-<img src="logo/logo.gif" alt="pycpt logo" width="100"/><p style="line-height: 1.1;"><br><strong>PyCPT</strong><br>Color Palette Tables from <a href="http://seaviewsensing.com/pub/cpt-city/" target="_blank">cpt-city</a><br>in your Python environment.<br>Made in 2025 by Léonard Seydoux</p><br clear="all"/>
+<img src="https://raw.githubusercontent.com/leonard-seydoux/pycpt-city/main/logo/logo.gif" alt="pycpt logo" width="100"/><p style="line-height: 1.1;"><br><strong>PyCPT</strong><br>Color Palette Tables from <a href="http://seaviewsensing.com/pub/cpt-city/" target="_blank">cpt-city</a><br>in your Python environment.<br>Made in 2025 by Léonard Seydoux</p><br clear="all"/>
 </div>
 
 ## What is cpt-city?
@@ -46,7 +46,7 @@ palette.plot()
 
 
     
-![svg](README_files/README_7_0.svg)
+![svg](https://raw.githubusercontent.com/leonard-seydoux/pycpt-city/main/README_files/README_7_0.svg)
     
 
 
@@ -62,7 +62,7 @@ palette.plot()
 
 
     
-![svg](README_files/README_9_0.svg)
+![png](https://raw.githubusercontent.com/leonard-seydoux/pycpt-city/main/README_files/README_9_0.svg)
     
 
 
@@ -92,7 +92,6 @@ cpt = pycpt.read("colombia", kind="diverging")
 
 # Create figure
 fig, ax = plt.subplots(ncols=2, nrows=2, sharex=True, sharey=True)
-fig.tight_layout()
 ax = ax.flatten()
 
 # Without norm
@@ -123,12 +122,13 @@ ax[1].set(title="Original norm")
 ax[2].set(title="Rescaled norm", xlabel="$x$ axis", ylabel="$y$ axis")
 ax[3].set(title="Interpolated norm", xlabel="$x$ axis")
 
+fig.tight_layout()
 plt.show()
 ```
 
 
     
-![svg](README_files/README_11_0.svg)
+![svg](https://raw.githubusercontent.com/leonard-seydoux/pycpt-city/main/README_files/README_11_0.svg)
     
 
 
@@ -181,8 +181,15 @@ plt.show()
 ```
 
 
+
+
+    Text(0.5, 1.0, 'La Réunion Island with illumination')
+
+
+
+
     
-![svg](README_files/README_13_0.svg)
+![svg](https://raw.githubusercontent.com/leonard-seydoux/pycpt-city/main/README_files/README_13_1.svg)
     
 
 
@@ -221,7 +228,7 @@ plt.show()
 
 
     
-![svg](README_files/README_15_0.svg)
+![svg](https://raw.githubusercontent.com/leonard-seydoux/pycpt-city/main/README_files/README_15_0.svg)
     
 
 
