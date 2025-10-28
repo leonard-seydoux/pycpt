@@ -1,3 +1,9 @@
 /.DS_Store
 /.venv
 /pycpt.egg-info
+
+**/__pycache__
+**/*.pyc
+**/*.pyo
+**/*.pyd
+
