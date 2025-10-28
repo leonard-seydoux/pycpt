@@ -1,5 +1,7 @@
 # pycpt
 
+<img src="logo/logo.gif" alt="pycpt logo" width=100/>
+
 Read and work with CPT (Color Palette Table) colormaps in Matplotlib.
 
 This package parses common CPT formats (including GMT-style lines) and exposes a simple `Palette` API:
