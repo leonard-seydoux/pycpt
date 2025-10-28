@@ -2,11 +2,13 @@
 <img src="logo/logo.gif" alt="pycpt logo" width="100"/><p style="line-height: 1.1;"><br><strong>PyCPT</strong><br>Color Palette Tables from <a href="http://seaviewsensing.com/pub/cpt-city/" target="_blank">cpt-city</a><br>in your Python environment.<br>Made in 2025 by Léonard Seydoux</p><br clear="all"/>
 </div>
 
-## Introduction
+## What is cpt-city?
 
-Color Palette Table (CPT) files define colormaps as piecewise-constant color bands between numeric boundaries. This notebook shows how `pycpt` reads CPTs (bundled from the [cpt-city](http://seaviewsensing.com/pub/cpt-city/) archive), preserves their original boundaries, and makes them easy to use in Matplotlib. 
+CPT is short for Color Palette Table, a file format popularized by the [Generic Mapping Tools](https://www.generic-mapping-tools.org/) (GMT) for defining colormaps as piecewise-constant color bands between numeric boundaries.
 
-We recommend to read the [cpt-city](http://seaviewsensing.com/pub/cpt-city/) archive license and terms of use, and acknowledge the original authors when using their palettes.
+The [cpt-city](http://seaviewsensing.com/pub/cpt-city/) website maintained by J. J. Green is a community-curated archive of color palettes collected from many projects (e.g., GMT, cmocean, Matplotlib, and more). Palettes are organized in family folders and typically include metadata files like `DESC.xml` and `COPYING.xml` that describe provenance and licensing.
+
+This package is shipped with a `cpt-city/` directory that contains the entire archive obtained from the website. Be mindful that individual palettes may carry different licenses-refer to the accompanying `COPYING.xml` files. Learn more at on the [cpt-city](http://seaviewsensing.com/pub/cpt-city/) website.
 
 
 ```python
@@ -123,7 +125,6 @@ ax[3].set(title="Interpolated norm", xlabel="$x$ axis")
 
 # Save figure
 fig.tight_layout()
-fig.savefig("norm.png")
 ```
 
 
@@ -159,16 +160,12 @@ for i, filepath in enumerate(files):
 for j in range(i + 1, len(ax)):
     ax[j].axis("off")
 
-fig.tight_layout()
-fig.savefig("wkp_palettes.png")
+# fig.tight_layout()
+# fig.savefig("wkp_palettes.png")
 ```
-
-    /var/folders/42/xftv8xwn14bbx5kmbg6lmw580000gn/T/ipykernel_55252/4198728160.py:20: UserWarning: This figure includes Axes that are not compatible with tight_layout, so results might be incorrect.
-      fig.tight_layout()
-
 
 
     
-![png](README_files/README_11_1.png)
+![png](README_files/README_11_0.png)
     
 
